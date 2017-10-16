@@ -1,0 +1,57 @@
+
+<div *ngIf="appUser">
+    <h2><span jhiTranslate="rideShareApp.appUser.detail.title">App User</span> {{appUser.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="rideShareApp.appUser.iuserId">Iuser Id</span></dt>
+        <dd>
+            <span>{{appUser.iuserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.appUser.firstName">First Name</span></dt>
+        <dd>
+            <span>{{appUser.firstName}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.appUser.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{appUser.lastName}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.appUser.gender">Gender</span></dt>
+        <dd>
+            <span jhiTranslate="{{'rideShareApp.Gender.' + appUser.gender}}">{{appUser.gender}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.appUser.address">Address</span></dt>
+        <dd>
+            <span>{{appUser.address}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.appUser.email">Email</span></dt>
+        <dd>
+            <span>{{appUser.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.appUser.fbID">Fb ID</span></dt>
+        <dd>
+            <span>{{appUser.fbID}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.appUser.googleID">Google ID</span></dt>
+        <dd>
+            <span>{{appUser.googleID}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.appUser.linkedInID">Linked In ID</span></dt>
+        <dd>
+            <span>{{appUser.linkedInID}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'app-user/'+ appUser.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

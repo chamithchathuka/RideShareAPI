@@ -1,0 +1,27 @@
+{
+    "rideShareApp": {
+        "rideDetails" : {
+            "home": {
+                "title": "Ride Details",
+                "createLabel": "Ride Details-ஐ உருவாக்கு",
+                "createOrEditLabel": "Ride Details -ஐ மாற்று (அ) உருவாக்கு",
+                "search": "Search for Ride Details"
+            },
+            "created": "Ride Details புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Ride Details மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Ride Details நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Ride Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Ride Details"
+            },
+            "pickedupOn": "Pickedup On",
+            "droppedOn": "Dropped On",
+            "comment": "Comment",
+            "status": "Status",
+            "appUser": "App User",
+            "ride": "Ride"
+        }
+    }
+}

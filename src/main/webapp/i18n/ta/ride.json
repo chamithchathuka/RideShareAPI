@@ -1,0 +1,34 @@
+{
+    "rideShareApp": {
+        "ride" : {
+            "home": {
+                "title": "Rides",
+                "createLabel": "Ride-ஐ உருவாக்கு",
+                "createOrEditLabel": "Ride -ஐ மாற்று (அ) உருவாக்கு",
+                "search": "Search for Ride"
+            },
+            "created": "Ride புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Ride மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Ride நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Ride {{ id }}?"
+            },
+            "detail": {
+                "title": "Ride"
+            },
+            "startLocation": "Start Location",
+            "endLocation": "End Location",
+            "startLocaionLat": "Start Locaion Lat",
+            "startLocationLong": "Start Location Long",
+            "endLocaionLat": "End Locaion Lat",
+            "endLocationLong": "End Location Long",
+            "startDateTime": "Start Date Time",
+            "createdDateTime": "Created Date Time",
+            "seatCapasity": "Seat Capasity",
+            "rideType": "Ride Type",
+            "privacy": "Privacy",
+            "rideDetails": "Ride Details",
+            "appUser": "App User"
+        }
+    }
+}

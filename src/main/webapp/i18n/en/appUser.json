@@ -1,0 +1,33 @@
+{
+    "rideShareApp": {
+        "appUser" : {
+            "home": {
+                "title": "App Users",
+                "createLabel": "Create a new App User",
+                "createOrEditLabel": "Create or edit a App User",
+                "search": "Search for App User"
+            },
+            "created": "A new App User is created with identifier {{ param }}",
+            "updated": "A App User is updated with identifier {{ param }}",
+            "deleted": "A App User is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete App User {{ id }}?"
+            },
+            "detail": {
+                "title": "App User"
+            },
+            "iuserId": "Iuser Id",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "gender": "Gender",
+            "address": "Address",
+            "email": "Email",
+            "fbID": "Fb ID",
+            "googleID": "Google ID",
+            "linkedInID": "Linked In ID",
+            "ride": "Ride",
+            "rideDetails": "Ride Details",
+            "myLocation": "My Location"
+        }
+    }
+}

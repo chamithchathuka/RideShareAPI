@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ride",
+            "otherEntityName": "ride",
+            "otherEntityRelationshipName": "appUser"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rideDetails",
+            "otherEntityName": "rideDetails",
+            "otherEntityRelationshipName": "appUser"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "myLocation",
+            "otherEntityName": "myLocation",
+            "otherEntityRelationshipName": "appUser"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "iuserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fbID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "googleID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linkedInID",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171014190825",
+    "entityTableName": "app_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

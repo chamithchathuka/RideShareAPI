@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "appUser",
+            "otherEntityName": "appUser",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "realLocationName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "myLocationName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lati",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "longi",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171014190826",
+    "entityTableName": "my_location",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

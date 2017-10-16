@@ -1,0 +1,9 @@
+{
+    "rideShareApp": {
+        "RideType" : {
+            "null": "",
+            "REQUEST": "REQUEST",
+            "SHARE": "SHARE"
+        }
+    }
+}

@@ -1,0 +1,71 @@
+
+<div *ngIf="ride">
+    <h2><span jhiTranslate="rideShareApp.ride.detail.title">Ride</span> {{ride.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="rideShareApp.ride.startLocation">Start Location</span></dt>
+        <dd>
+            <span>{{ride.startLocation}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.endLocation">End Location</span></dt>
+        <dd>
+            <span>{{ride.endLocation}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.startLocaionLat">Start Locaion Lat</span></dt>
+        <dd>
+            <span>{{ride.startLocaionLat}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.startLocationLong">Start Location Long</span></dt>
+        <dd>
+            <span>{{ride.startLocationLong}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.endLocaionLat">End Locaion Lat</span></dt>
+        <dd>
+            <span>{{ride.endLocaionLat}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.endLocationLong">End Location Long</span></dt>
+        <dd>
+            <span>{{ride.endLocationLong}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.startDateTime">Start Date Time</span></dt>
+        <dd>
+            <span>{{ride.startDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.createdDateTime">Created Date Time</span></dt>
+        <dd>
+            <span>{{ride.createdDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.seatCapasity">Seat Capasity</span></dt>
+        <dd>
+            <span>{{ride.seatCapasity}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.rideType">Ride Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'rideShareApp.RideType.' + ride.rideType}}">{{ride.rideType}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.privacy">Privacy</span></dt>
+        <dd>
+            <span jhiTranslate="{{'rideShareApp.Privacy.' + ride.privacy}}">{{ride.privacy}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.ride.appUser">App User</span></dt>
+        <dd>
+            <div *ngIf="ride.appUser">
+                <a [routerLink]="['/app-user', ride.appUser?.id]">{{ride.appUser?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ride/'+ ride.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

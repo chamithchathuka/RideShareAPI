@@ -1,0 +1,95 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRideLabel" jhiTranslate="rideShareApp.ride.home.createOrEditLabel">Create or edit a Ride</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ride.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ride.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.startLocation" for="field_startLocation">Start Location</label>
+            <input type="text" class="form-control" name="startLocation" id="field_startLocation"
+                [(ngModel)]="ride.startLocation"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.endLocation" for="field_endLocation">End Location</label>
+            <input type="text" class="form-control" name="endLocation" id="field_endLocation"
+                [(ngModel)]="ride.endLocation"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.startLocaionLat" for="field_startLocaionLat">Start Locaion Lat</label>
+            <input type="text" class="form-control" name="startLocaionLat" id="field_startLocaionLat"
+                [(ngModel)]="ride.startLocaionLat"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.startLocationLong" for="field_startLocationLong">Start Location Long</label>
+            <input type="text" class="form-control" name="startLocationLong" id="field_startLocationLong"
+                [(ngModel)]="ride.startLocationLong"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.endLocaionLat" for="field_endLocaionLat">End Locaion Lat</label>
+            <input type="text" class="form-control" name="endLocaionLat" id="field_endLocaionLat"
+                [(ngModel)]="ride.endLocaionLat"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.endLocationLong" for="field_endLocationLong">End Location Long</label>
+            <input type="text" class="form-control" name="endLocationLong" id="field_endLocationLong"
+                [(ngModel)]="ride.endLocationLong"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.startDateTime" for="field_startDateTime">Start Date Time</label>
+            <div class="d-flex">
+                <input id="field_startDateTime" type="datetime-local" class="form-control" name="startDateTime" [(ngModel)]="ride.startDateTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.createdDateTime" for="field_createdDateTime">Created Date Time</label>
+            <div class="d-flex">
+                <input id="field_createdDateTime" type="datetime-local" class="form-control" name="createdDateTime" [(ngModel)]="ride.createdDateTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.seatCapasity" for="field_seatCapasity">Seat Capasity</label>
+            <input type="number" class="form-control" name="seatCapasity" id="field_seatCapasity"
+                [(ngModel)]="ride.seatCapasity"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.rideType" for="field_rideType">Ride Type</label>
+            <select class="form-control" name="rideType" [(ngModel)]="ride.rideType" id="field_rideType" >
+                <option value="REQUEST" jhiTranslate="rideShareApp.RideType.REQUEST">REQUEST</option>
+                <option value="SHARE" jhiTranslate="rideShareApp.RideType.SHARE">SHARE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.ride.privacy" for="field_privacy">Privacy</label>
+            <select class="form-control" name="privacy" [(ngModel)]="ride.privacy" id="field_privacy" >
+                <option value="FRIENDONLY" jhiTranslate="rideShareApp.Privacy.FRIENDONLY">FRIENDONLY</option>
+                <option value="PUBLIC" jhiTranslate="rideShareApp.Privacy.PUBLIC">PUBLIC</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="rideShareApp.ride.appUser" for="field_appUser">App User</label>
+            <select class="form-control" id="field_appUser" name="appUser" [(ngModel)]="ride.appUser" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="appUserOption.id === ride.appUser?.id ? ride.appUser : appUserOption" *ngFor="let appUserOption of appusers; trackBy: trackAppUserById">{{appUserOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

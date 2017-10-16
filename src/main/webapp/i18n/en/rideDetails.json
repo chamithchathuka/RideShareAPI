@@ -1,0 +1,27 @@
+{
+    "rideShareApp": {
+        "rideDetails" : {
+            "home": {
+                "title": "Ride Details",
+                "createLabel": "Create a new Ride Details",
+                "createOrEditLabel": "Create or edit a Ride Details",
+                "search": "Search for Ride Details"
+            },
+            "created": "A new Ride Details is created with identifier {{ param }}",
+            "updated": "A Ride Details is updated with identifier {{ param }}",
+            "deleted": "A Ride Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ride Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Ride Details"
+            },
+            "pickedupOn": "Pickedup On",
+            "droppedOn": "Dropped On",
+            "comment": "Comment",
+            "status": "Status",
+            "appUser": "App User",
+            "ride": "Ride"
+        }
+    }
+}

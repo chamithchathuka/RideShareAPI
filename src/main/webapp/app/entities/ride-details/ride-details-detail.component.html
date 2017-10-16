@@ -1,0 +1,49 @@
+
+<div *ngIf="rideDetails">
+    <h2><span jhiTranslate="rideShareApp.rideDetails.detail.title">Ride Details</span> {{rideDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="rideShareApp.rideDetails.pickedupOn">Pickedup On</span></dt>
+        <dd>
+            <span>{{rideDetails.pickedupOn | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.rideDetails.droppedOn">Dropped On</span></dt>
+        <dd>
+            <span>{{rideDetails.droppedOn | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.rideDetails.comment">Comment</span></dt>
+        <dd>
+            <span>{{rideDetails.comment}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.rideDetails.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'rideShareApp.Status.' + rideDetails.status}}">{{rideDetails.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.rideDetails.appUser">App User</span></dt>
+        <dd>
+            <div *ngIf="rideDetails.appUser">
+                <a [routerLink]="['/app-user', rideDetails.appUser?.id]">{{rideDetails.appUser?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.rideDetails.ride">Ride</span></dt>
+        <dd>
+            <div *ngIf="rideDetails.ride">
+                <a [routerLink]="['/ride', rideDetails.ride?.id]">{{rideDetails.ride?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ride-details/'+ rideDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

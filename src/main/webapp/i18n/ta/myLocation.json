@@ -1,0 +1,26 @@
+{
+    "rideShareApp": {
+        "myLocation" : {
+            "home": {
+                "title": "My Locations",
+                "createLabel": "My Location-ஐ உருவாக்கு",
+                "createOrEditLabel": "My Location -ஐ மாற்று (அ) உருவாக்கு",
+                "search": "Search for My Location"
+            },
+            "created": "My Location புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "My Location மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A My Location நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் My Location {{ id }}?"
+            },
+            "detail": {
+                "title": "My Location"
+            },
+            "realLocationName": "Real Location Name",
+            "myLocationName": "My Location Name",
+            "lati": "Lati",
+            "longi": "Longi",
+            "appUser": "App User"
+        }
+    }
+}

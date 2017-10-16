@@ -1,0 +1,11 @@
+{
+    "rideShareApp": {
+        "Status" : {
+            "null": "",
+            "AVAILABLE": "AVAILABLE",
+            "RESERVED": "RESERVED",
+            "ONRIDE": "ONRIDE",
+            "COMPLETED": "COMPLETED"
+        }
+    }
+}

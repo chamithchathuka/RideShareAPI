@@ -1,0 +1,52 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMyLocationLabel" jhiTranslate="rideShareApp.myLocation.home.createOrEditLabel">Create or edit a My Location</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!myLocation.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="myLocation.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.myLocation.realLocationName" for="field_realLocationName">Real Location Name</label>
+            <input type="text" class="form-control" name="realLocationName" id="field_realLocationName"
+                [(ngModel)]="myLocation.realLocationName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.myLocation.myLocationName" for="field_myLocationName">My Location Name</label>
+            <input type="text" class="form-control" name="myLocationName" id="field_myLocationName"
+                [(ngModel)]="myLocation.myLocationName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.myLocation.lati" for="field_lati">Lati</label>
+            <input type="text" class="form-control" name="lati" id="field_lati"
+                [(ngModel)]="myLocation.lati"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.myLocation.longi" for="field_longi">Longi</label>
+            <input type="text" class="form-control" name="longi" id="field_longi"
+                [(ngModel)]="myLocation.longi"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="rideShareApp.myLocation.appUser" for="field_appUser">App User</label>
+            <select class="form-control" id="field_appUser" name="appUser" [(ngModel)]="myLocation.appUser" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="appUserOption.id === myLocation.appUser?.id ? myLocation.appUser : appUserOption" *ngFor="let appUserOption of appusers; trackBy: trackAppUserById">{{appUserOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

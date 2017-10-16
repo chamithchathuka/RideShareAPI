@@ -1,0 +1,43 @@
+
+<div *ngIf="myLocation">
+    <h2><span jhiTranslate="rideShareApp.myLocation.detail.title">My Location</span> {{myLocation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="rideShareApp.myLocation.realLocationName">Real Location Name</span></dt>
+        <dd>
+            <span>{{myLocation.realLocationName}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.myLocation.myLocationName">My Location Name</span></dt>
+        <dd>
+            <span>{{myLocation.myLocationName}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.myLocation.lati">Lati</span></dt>
+        <dd>
+            <span>{{myLocation.lati}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.myLocation.longi">Longi</span></dt>
+        <dd>
+            <span>{{myLocation.longi}}</span>
+        </dd>
+        <dt><span jhiTranslate="rideShareApp.myLocation.appUser">App User</span></dt>
+        <dd>
+            <div *ngIf="myLocation.appUser">
+                <a [routerLink]="['/app-user', myLocation.appUser?.id]">{{myLocation.appUser?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'my-location/'+ myLocation.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

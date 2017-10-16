@@ -1,0 +1,70 @@
+
+
+
+
+entity AppUser {
+	iuserId Long,
+    firstName String,
+    lastName String,
+    gender Gender,
+    address String,
+    email String,
+    fbID String,
+    googleID String,
+    linkedInID String    
+    
+}
+
+entity MyLocation{
+	realLocationName String,
+    myLocationName String,
+    lati String,
+    longi String  
+}
+
+entity Ride {
+   startLocation String,
+   endLocation String,
+   startLocaionLat String,
+   startLocationLong String,
+   endLocaionLat String,
+   endLocationLong String,
+   startDateTime ZonedDateTime,
+   createdDateTime ZonedDateTime,
+   seatCapasity Integer,
+   rideType RideType,   
+   privacy Privacy
+}
+
+entity RideDetails {
+	pickedupOn ZonedDateTime,
+    droppedOn ZonedDateTime,
+    comment String,
+    status Status
+}
+enum Gender {
+    MALE,FEMALE
+}
+
+enum Status {
+    AVAILABLE,RESERVED,ONRIDE,COMPLETED
+}
+
+enum RideType {
+    REQUEST,SHARE
+}
+
+enum Privacy {
+  FRIENDONLY,PUBLIC
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	//AppUser to User{userID},	
+    AppUser to Ride{appUser},
+    AppUser to RideDetails{appUser},
+    Ride to RideDetails{ride},
+    AppUser to MyLocation{appUser}    
+    
+}

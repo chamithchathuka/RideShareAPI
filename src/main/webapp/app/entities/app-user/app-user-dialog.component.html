@@ -1,0 +1,72 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAppUserLabel" jhiTranslate="rideShareApp.appUser.home.createOrEditLabel">Create or edit a App User</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!appUser.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="appUser.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.iuserId" for="field_iuserId">Iuser Id</label>
+            <input type="number" class="form-control" name="iuserId" id="field_iuserId"
+                [(ngModel)]="appUser.iuserId"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                [(ngModel)]="appUser.firstName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                [(ngModel)]="appUser.lastName"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.gender" for="field_gender">Gender</label>
+            <select class="form-control" name="gender" [(ngModel)]="appUser.gender" id="field_gender" >
+                <option value="MALE" jhiTranslate="rideShareApp.Gender.MALE">MALE</option>
+                <option value="FEMALE" jhiTranslate="rideShareApp.Gender.FEMALE">FEMALE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                [(ngModel)]="appUser.address"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="appUser.email"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.fbID" for="field_fbID">Fb ID</label>
+            <input type="text" class="form-control" name="fbID" id="field_fbID"
+                [(ngModel)]="appUser.fbID"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.googleID" for="field_googleID">Google ID</label>
+            <input type="text" class="form-control" name="googleID" id="field_googleID"
+                [(ngModel)]="appUser.googleID"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rideShareApp.appUser.linkedInID" for="field_linkedInID">Linked In ID</label>
+            <input type="text" class="form-control" name="linkedInID" id="field_linkedInID"
+                [(ngModel)]="appUser.linkedInID"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

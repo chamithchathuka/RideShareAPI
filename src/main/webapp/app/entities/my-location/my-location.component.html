@@ -1,0 +1,81 @@
+<div>
+    <h2>
+        <span jhiTranslate="rideShareApp.myLocation.home.title">My Locations</span>
+        <button class="btn btn-primary float-right jh-create-entity create-my-location" [routerLink]="['/', { outlets: { popup: ['my-location-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="rideShareApp.myLocation.home.createLabel">
+            Create new My Location
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'rideShareApp.myLocation.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="myLocations">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="rideShareApp.myLocation.realLocationName">Real Location Name</span></th>
+            <th><span jhiTranslate="rideShareApp.myLocation.myLocationName">My Location Name</span></th>
+            <th><span jhiTranslate="rideShareApp.myLocation.lati">Lati</span></th>
+            <th><span jhiTranslate="rideShareApp.myLocation.longi">Longi</span></th>
+            <th><span jhiTranslate="rideShareApp.myLocation.appUser">App User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let myLocation of myLocations ;trackBy: trackId">
+                <td><a [routerLink]="['../my-location', myLocation.id ]">{{myLocation.id}}</a></td>
+                <td>{{myLocation.realLocationName}}</td>
+                <td>{{myLocation.myLocationName}}</td>
+                <td>{{myLocation.lati}}</td>
+                <td>{{myLocation.longi}}</td>
+                <td>
+                    <div *ngIf="myLocation.appUser">
+                        <a [routerLink]="['../app-user', myLocation.appUser?.id ]" >{{myLocation.appUser?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../my-location', myLocation.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'my-location/'+ myLocation.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'my-location/'+ myLocation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

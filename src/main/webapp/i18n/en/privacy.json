@@ -1,0 +1,9 @@
+{
+    "rideShareApp": {
+        "Privacy" : {
+            "null": "",
+            "FRIENDONLY": "FRIENDONLY",
+            "PUBLIC": "PUBLIC"
+        }
+    }
+}

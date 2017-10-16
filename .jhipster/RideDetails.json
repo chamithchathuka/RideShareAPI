@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "appUser",
+            "otherEntityName": "appUser",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ride",
+            "otherEntityName": "ride",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "pickedupOn",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "droppedOn",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "AVAILABLE,RESERVED,ONRIDE,COMPLETED"
+        }
+    ],
+    "changelogDate": "20171014190828",
+    "entityTableName": "ride_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,70 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rideDetails",
+            "otherEntityName": "rideDetails",
+            "otherEntityRelationshipName": "ride"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "appUser",
+            "otherEntityName": "appUser",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "startLocation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endLocation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startLocaionLat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startLocationLong",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endLocaionLat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endLocationLong",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDateTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "createdDateTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "seatCapasity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "rideType",
+            "fieldType": "RideType",
+            "fieldValues": "REQUEST,SHARE"
+        },
+        {
+            "fieldName": "privacy",
+            "fieldType": "Privacy",
+            "fieldValues": "FRIENDONLY,PUBLIC"
+        }
+    ],
+    "changelogDate": "20171014190827",
+    "entityTableName": "ride",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,95 @@
+<div>
+    <h2>
+        <span jhiTranslate="rideShareApp.ride.home.title">Rides</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ride" [routerLink]="['/', { outlets: { popup: ['ride-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="rideShareApp.ride.home.createLabel">
+            Create new Ride
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'rideShareApp.ride.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="rides">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.startLocation">Start Location</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.endLocation">End Location</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.startLocaionLat">Start Locaion Lat</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.startLocationLong">Start Location Long</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.endLocaionLat">End Locaion Lat</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.endLocationLong">End Location Long</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.startDateTime">Start Date Time</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.createdDateTime">Created Date Time</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.seatCapasity">Seat Capasity</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.rideType">Ride Type</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.privacy">Privacy</span></th>
+            <th><span jhiTranslate="rideShareApp.ride.appUser">App User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ride of rides ;trackBy: trackId">
+                <td><a [routerLink]="['../ride', ride.id ]">{{ride.id}}</a></td>
+                <td>{{ride.startLocation}}</td>
+                <td>{{ride.endLocation}}</td>
+                <td>{{ride.startLocaionLat}}</td>
+                <td>{{ride.startLocationLong}}</td>
+                <td>{{ride.endLocaionLat}}</td>
+                <td>{{ride.endLocationLong}}</td>
+                <td>{{ride.startDateTime | date:'medium'}}</td>
+                <td>{{ride.createdDateTime | date:'medium'}}</td>
+                <td>{{ride.seatCapasity}}</td>
+                <td jhiTranslate="{{'rideShareApp.RideType.' + ride.rideType}}">{{ride.rideType}}</td>
+                <td jhiTranslate="{{'rideShareApp.Privacy.' + ride.privacy}}">{{ride.privacy}}</td>
+                <td>
+                    <div *ngIf="ride.appUser">
+                        <a [routerLink]="['../app-user', ride.appUser?.id ]" >{{ride.appUser?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ride', ride.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ride/'+ ride.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ride/'+ ride.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
